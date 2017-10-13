@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align:center;" >Build a Blog</h1>
+    {% if blogs|length == 0 %}
+    <p>No blogs yet</p>
+    {% else %}
+    <ul>
+        {% for blog in blogs %}
+        <li name="blog-id", value='{{blog.id}}'><h2><a href= 'http://127.0.0.1:5000/individual?id={{blog.id}}'>{{blog.title}}</a></h2>
+            <p>{{blog.body}}</p>     
+            </form>
+        </li>
+        {% endfor %}
+</ul>
+        
+    {% endif %}
+
+{% endblock %}
