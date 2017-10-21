@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 style="text-align:center;" >All Blog Posts!</h1>
+    <h1 style="text-align:center;" >Blog Posts!</h1>
     {% if blogs|length == 0 %}
-    <p>No blogs yet</p>
+    <p>User has no blogs</p>
     {% else %}
     <ul>
         {% for blog in blogs %}
         <li name="blog-id", value='{{blog.id}}'><h2><a href= 'http://127.0.0.1:5000/individual?id={{blog.id}}'>{{blog.title}}</a></h2>
             <p>{{blog.body}}</p>  
+            
             <h4 style='font-style:italic;', name="owner-id", value='{{blog.owner.id}}'>Written By:<a href= 'http://127.0.0.1:5000/singleUser?id={{blog.owner.id}}'> {{blog.owner.username}}</a></h4>
-            </form>
         </li>
         {% endfor %}
-</ul>
+    </ul>
+
         
     {% endif %}
 

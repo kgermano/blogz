@@ -3,6 +3,7 @@
 {% block content %}
 
 <span name='blog-id', id='{{blog.id}}'><h1 style="text-align:center;" name='title', id='{{title}}'>{{title}}</h1>
-<p name='body', id='{{body}}'>{{body}}</p></span>
-
+<p name='body', id='{{body}}'>{{body}}</p>
+<h4 style='font-style:italic;', name='owner-id', value ='{{blog.owner.id}}'>Written By:<a href='http://127.0.0.1:5000/singleUser?id={{blog.owner.id}}'> {{blog.owner.username}}</a></h4>
+</span>
 {% endblock %}

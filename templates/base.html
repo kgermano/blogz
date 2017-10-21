@@ -2,17 +2,36 @@
 <html>
     <head>
         <nav>
-            <a href='http://127.0.0.1:5000/blog'>Main Blog Page</a> |
-            <a href='http://127.0.0.1:5000/newpost'>Add a New Post</a>
+            <a href='./'>Home</a> |
+            <a href='http://127.0.0.1:5000/blog'>All Blog Posts</a> |
+            <a href='http://127.0.0.1:5000/newpost'>Add a New Post</a> |
+            <a href='./login'>Log In</a> |
+            <a href="./logout">Log Out</a>
+            
+            
+    
         </nav>
         <title>{{title}}</title>
         <style>
             .error {
                 color: red;
+                list-style-type: none;
+            }
+            .success {
+                color:blue;
+                list-style-type: none;
             }
         </style>
     </head>
 <body>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
 
     {% block content %}
     {% endblock %}
